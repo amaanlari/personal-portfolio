@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
@@ -28,6 +29,7 @@ function Layout() {
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   )
 }
