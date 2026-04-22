@@ -57,8 +57,28 @@ export default function Resume() {
     <main className="resume-page">
       <div className="container">
 
+        {/* Actions */}
+        <div className="resume-actions fade-up">
+          <button className="resume-print-btn" onClick={() => window.print()}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+            Print
+          </button>
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-dl-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF
+          </a>
+        </div>
+
         {/* Header */}
-        <div className="resume-header fade-up">
+        <div className="resume-header fade-up-2">
           <div className="rh-left">
             <span className="mono-label">Curriculum Vitae</span>
             <h1 className="resume-name">Mohammad<br /><em>Amaan Lari</em></h1>
@@ -84,7 +104,7 @@ export default function Resume() {
         </div>
 
         {/* Skills */}
-        <section className="r-section fade-up-2">
+        <section className="r-section fade-up-3">
           <h2 className="r-section-title">Technical Skills</h2>
           <div className="r-skills">
             {Object.entries(skills).map(([cat, items]) => (
@@ -97,7 +117,7 @@ export default function Resume() {
         </section>
 
         {/* Experience */}
-        <section className="r-section fade-up-3">
+        <section className="r-section fade-up-4">
           <h2 className="r-section-title">Experience</h2>
           {experience.map((job) => (
             <div className="r-job" key={job.company}>
@@ -122,7 +142,7 @@ export default function Resume() {
         </section>
 
         {/* Projects */}
-        <section className="r-section fade-up-4">
+        <section className="r-section fade-up-5">
           <h2 className="r-section-title">Projects</h2>
           {projects.map((p) => (
             <div className="r-job" key={p.name}>
@@ -142,7 +162,7 @@ export default function Resume() {
         </section>
 
         {/* Education */}
-        <section className="r-section fade-up-5">
+        <section className="r-section fade-up-6">
           <h2 className="r-section-title">Education</h2>
           <div className="r-job">
             <div className="r-job-header">
@@ -156,11 +176,6 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Download note */}
-        <div className="resume-download-note fade-up-6">
-          <span className="mono-label">Want the PDF version?</span>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="dl-link">Download PDF →</a>
-        </div>
 
       </div>
     </main>

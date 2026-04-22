@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohammad Amaan Lari · Software Engineer</title>
     <meta name="description" content="Backend software engineer specialising in distributed systems, cloud-edge microservices, and high-throughput data pipelines." />
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        var p = (t === 'dark' || t === 'light') ? t
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', p);
+      } catch(e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

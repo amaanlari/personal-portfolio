@@ -69,6 +69,9 @@ export default function Home() {
 
           <div className="hero-actions fade-up-4">
             <Link to="/resume" className="btn-primary">View Resume</Link>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn-ghost">
+              Download PDF ↓
+            </a>
             <Link to="/blog" className="btn-ghost">Read Blog →</Link>
           </div>
 
