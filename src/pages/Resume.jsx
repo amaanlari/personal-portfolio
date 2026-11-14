@@ -18,6 +18,7 @@ export default function Resume() {
         <h1 className="page-title">Resume</h1>
         <p className="page-lead">
           Mohammad Amaan Lari · <a href="/resume.pdf" target="_blank" rel="noreferrer">Download PDF</a>
+          {' · '}<button type="button" className="link-button" onClick={() => window.print()}>Print</button>
         </p>
 
         <dl className="contact-list">
