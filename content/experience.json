@@ -51,19 +51,14 @@
   },
   {
     "id": 3,
-    "company": "LTIMindtree",
+    "company": "LTM (formerly LTIMindtree)",
     "companyUrl": "https://www.ltimindtree.com",
     "location": "Navi Mumbai, India",
     "type": "Full-time",
     "roles": [
       {
-        "title": "Graduate Engineer Trainee",
-        "start": "2026-05",
-        "end": "2026-XX"
-      },
-      {
         "title": "Software Engineer",
-        "start": "2026-XX",
+        "start": "2026-05",
         "end": null
       }
     ],
