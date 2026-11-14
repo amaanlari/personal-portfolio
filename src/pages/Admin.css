@@ -1,5 +1,5 @@
 .admin-page {
-  padding: 8rem 0 4rem;
+  padding: 3.5rem 0 4rem;
   min-height: 100vh;
 }
 
@@ -20,8 +20,8 @@
 }
 
 .login-card h1 {
-  font-family: var(--serif);
-  font-size: 2rem;
+  font-family: var(--sans);
+  font-size: 1.375rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -37,9 +37,9 @@
 }
 
 .admin-header h1 {
-  font-family: var(--serif);
-  font-size: 2.5rem;
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 1.375rem;
+  font-weight: 600;
 }
 
 .admin-actions {
@@ -49,9 +49,9 @@
 
 /* Messages */
 .error-msg {
-  background: #fee;
-  border: 1px solid #fcc;
-  color: #c33;
+  background: var(--surface);
+  border: 1px solid var(--danger);
+  color: var(--danger);
   padding: 0.75rem 1rem;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -88,7 +88,7 @@
 }
 
 .post-form-card h2 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
@@ -104,7 +104,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
@@ -116,7 +116,7 @@
   border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--surface);
-  color: var(--ink);
+  color: var(--text);
   font-family: inherit;
   font-size: 0.875rem;
   transition: border-color 0.2s;
@@ -126,7 +126,7 @@
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
 .form-group textarea {
@@ -150,7 +150,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: var(--ink-2);
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -187,8 +187,8 @@ button:disabled {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--primary);
+  color: #fff;
 }
 
 .btn-primary:hover:not(:disabled) {
@@ -197,7 +197,7 @@ button:disabled {
 
 .btn-secondary {
   background: var(--surface);
-  color: var(--ink-2);
+  color: var(--text);
   border: 1px solid var(--border);
 }
 
@@ -206,14 +206,14 @@ button:disabled {
 }
 
 .btn-edit {
-  background: var(--accent-light);
+  background: var(--primary);
   color: white;
   padding: 0.4rem 0.8rem;
   font-size: 0.7rem;
 }
 
 .btn-delete {
-  background: #c33;
+  background: #B3363A;
   color: white;
   padding: 0.4rem 0.8rem;
   font-size: 0.7rem;
@@ -243,7 +243,7 @@ th {
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--text);
   font-weight: 500;
 }
 
@@ -251,13 +251,13 @@ td {
   padding: 1rem;
   border-top: 1px solid var(--border);
   font-size: 0.875rem;
-  color: var(--ink-2);
+  color: var(--text);
 }
 
 .post-title {
   font-size: large;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--text);
   max-width: 500px;
   word-wrap: break-word;
   line-height: 1.4;
@@ -279,19 +279,19 @@ td {
 }
 
 .status-badge.published {
-  background: var(--accent-pale);
-  color: var(--accent);
+  background: var(--surface);
+  color: var(--primary);
 }
 
 .status-badge.draft {
-  background: #f0f0f0;
-  color: #666;
+  background: var(--surface);
+  color: var(--muted);
 }
 
 .no-posts-msg {
   padding: 3rem;
   text-align: center;
-  color: var(--ink-3);
+  color: var(--muted);
   font-size: 0.875rem;
 }
 

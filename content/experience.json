@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "company": "Viral Fission",
+    "type": "Internship",
+    "roles": [
+      {
+        "title": "Software Developer Intern",
+        "start": "2024-07",
+        "end": "2024-12"
+      }
+    ],
+    "highlights": [
+      "**Notification Ecosystem:** Replaced cron-based monitoring with a Redis + Kafka distributed pipeline (In-App, SMS, Email) serving 150k+ users with 1M+ daily updates; added DLT and automated retries for 100% delivery reliability. Led Kafka vs. AWS SQS benchmarking to produce a cost-performance scaling roadmap for leadership.",
+      "**Platform Engineering:** Architected corporate website and CMS with Angular 18 and Spring Boot; implemented a Global Exception Handler with custom types and unit tests, standardizing error reporting across all mobile and web clients."
+    ],
+    "tech": [
+      "Kafka",
+      "Redis",
+      "Spring Boot",
+      "Angular"
+    ]
+  },
+  {
+    "id": 2,
+    "company": "Solvei8",
+    "type": "Full-time",
+    "roles": [
+      {
+        "title": "Software Engineer",
+        "start": "2025-04",
+        "end": "2026-02"
+      }
+    ],
+    "highlights": [
+      "Tracki8 MES · Intern → Full-Time · Cloud-Edge MES serving 60+ global factories",
+      "**RFID Bulk Scanning Engine:** Replaced manual QR single-scan workflows with an RFID bulk system processing 5–10 tags simultaneously, directly cutting per-bundle scan time on the factory floor. Engineered a tag lifecycle state machine defining precise Terminated vs. Active transitions with versioning logic to prevent data collisions in high-concurrency environments.",
+      "**Cross-Microservice WIP Integration:** Identified a missing data linkage between two microservices; engineered a service-to-service integration to fetch live WIP state and surface it in the Tag Generation module's history view, giving floor supervisors real-time traceability without manual lookups.",
+      "**Scan & Pack Refactor:** Led full-stack refactor to support multi-color, variable-size cartons demanded by global clients; migrated 3 core production tables (nullable color columns + historical backfill from BCTX tables), modified 21 files across Scala, Slick mappings, DTOs, Excel parser, and REST APIs — shipped as a zero-downtime global update.",
+      "**Set Packs — Greenfield Architecture:** Co-designed a two-tier packing system (Set Pack → Carton) for complex combo orders, iterating the data model 3 times with senior developer and solutions team. Built 5–10 APIs in Scala with optimistic concurrency control, MongoDB aggregation pipelines, hash-based audit logging, and 10+ DTOs.",
+      "**Measurement QC Automation:** Built automated QC services that generate production compliance reports directly from user-defined specifications, eliminating manual reporting overhead and enabling real-time data-driven floor monitoring across all factories.",
+      "**API & Data Layer:** Owned the full data layer across Tracki8 modules — optimized MongoDB aggregation pipelines and PostgreSQL schemas with regression testing; integrated Apache Kafka event streaming for manufacturing analytics, co-authoring performance contracts with the data engineering team. Delivered 20+ RESTful APIs in Java/Scala."
+    ],
+    "tech": [
+      "Java",
+      "Scala",
+      "Kafka",
+      "MongoDB",
+      "PostgreSQL"
+    ]
+  },
+  {
+    "id": 3,
+    "company": "LTIMindtree",
+    "companyUrl": "https://www.ltimindtree.com",
+    "location": "Navi Mumbai, India",
+    "type": "Full-time",
+    "roles": [
+      {
+        "title": "Graduate Engineer Trainee",
+        "start": "2026-05",
+        "end": "2026-XX"
+      },
+      {
+        "title": "Software Engineer",
+        "start": "2026-XX",
+        "end": null
+      }
+    ],
+    "highlights": [
+      "Completed intensive full-stack training in .NET and Angular; led the team on the final capstone project.",
+      "Engineering across multiple enterprise client engagements in manufacturing, oil & gas, and fintech.",
+      "Built a centralized WFH & Leave Request Management system so managers and HR can review, approve and track requests in one place, replacing scattered manual handling."
+    ],
+    "tech": [
+      ".NET",
+      "C#",
+      "Angular",
+      "TypeScript",
+      "SQL"
+    ]
+  }
+]

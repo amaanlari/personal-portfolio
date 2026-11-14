@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "org": "Oppia Foundation",
+    "orgUrl": "https://github.com/oppia/oppia",
+    "role": "Open Source Contributor",
+    "start": "2023",
+    "end": "2023",
+    "highlights": [
+      "Automated translatable content creation, reducing contributor effort by 60%; wrote unit tests against the full existing test suite and mentored contributors, raising average contribution quality score by 10%."
+    ]
+  }
+]

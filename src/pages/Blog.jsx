@@ -1,159 +1,84 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { usePosts } from '../lib/usePosts'
 import './Blog.css'
-
-const API_URL = import.meta.env.VITE_API_URL
 
 const categories = ['All', 'Engineering', 'Architecture', 'Infrastructure', 'Backend']
 
 export default function Blog() {
-  const navigate = useNavigate()
-  const [posts, setPosts] = useState([])
-  const [activeCategory, setActiveCategory] = useState('All')
-  const [hoveredId, setHoveredId] = useState(null)
-  const [loading, setLoading] = useState(true)
+  // Filters live in the URL: /blog?category=Backend&tag=kafka
+  const [params] = useSearchParams()
+  const activeCategory = categories.includes(params.get('category')) ? params.get('category') : 'All'
+  const activeTag = params.get('tag')
 
-  useEffect(() => {
-    fetchPosts()
-  }, [activeCategory])
+  const posts = usePosts(activeCategory)
+  const loading = posts === null
+  const visible = (posts ?? []).filter(p => !activeTag || p.tags.includes(activeTag))
 
-  const fetchPosts = async () => {
-    setLoading(true)
-    try {
-      const url = activeCategory === 'All'
-        ? `${API_URL}/posts`
-        : `${API_URL}/posts?category=${activeCategory}`
-
-      const response = await fetch(url)
-      const data = await response.json()
-
-      if (response.ok) {
-        setPosts(data)
-      }
-    } catch (error) {
-      console.error('Failed to fetch posts:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const filtered = posts
-
-  const featured = filtered.filter(p => p.featured)
-  const rest = filtered.filter(p => !p.featured)
-
-  const handlePostClick = (post) => {
-    navigate(`/blog/${post.slug}`)
+  const hrefFor = (next) => {
+    const merged = { category: activeCategory, tag: activeTag, ...next }
+    const query = new URLSearchParams()
+    if (merged.category && merged.category !== 'All') query.set('category', merged.category)
+    if (merged.tag) query.set('tag', merged.tag)
+    const qs = query.toString()
+    return qs ? `/blog?${qs}` : '/blog'
   }
 
   return (
-    <main className="blog-page">
+    <main className="page">
+      <title>Blog · Mohammad Amaan Lari</title>
       <div className="container">
+        <h1 className="page-title">Blog</h1>
+        <p className="page-lead">
+          Deep dives into distributed systems, manufacturing software, backend architecture,
+          and the engineering decisions made at scale.
+        </p>
 
-        {/* Header */}
-        <div className="blog-header fade-up">
-          <span className="mono-label">Writing</span>
-          <h1 className="blog-title">
-            Engineering<br /><em>in depth.</em>
-          </h1>
-          <p className="blog-sub">
-            Deep dives into distributed systems, manufacturing software, backend architecture,
-            and the engineering decisions made at scale.
-          </p>
-        </div>
-
-        {/* Filter */}
-        <div className="blog-filters fade-up-2">
+        <nav className="pills blog-filters" aria-label="Filter by category">
           {categories.map(cat => (
-            <button
-              key={cat}
-              className={`filter-btn${activeCategory === cat ? ' active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
+            <Link key={cat} to={hrefFor({ category: cat })} className="pill" aria-current={activeCategory === cat ? 'true' : undefined}>
               {cat}
-            </button>
+            </Link>
           ))}
+        </nav>
+
+        {activeTag && (
+          <p className="mono-label blog-state">
+            Tagged #{activeTag} · <Link to={hrefFor({ tag: null })}>clear</Link>
+          </p>
+        )}
+
+        <div aria-live="polite">
+          {loading && <p className="mono-label blog-state">Loading posts...</p>}
+          {!loading && visible.length === 0 && <p className="mono-label blog-state">No posts here yet.</p>}
         </div>
 
-        {/* Loading state */}
-        {loading && (
-          <div className="loading-msg fade-up-3">
-            <span className="mono-label">Loading posts...</span>
-          </div>
-        )}
-
-        {/* Featured posts */}
-        {!loading && featured.length > 0 && (
-          <div className="featured-grid fade-up-3">
-            {featured.map(post => (
-              <article
-                key={post._id}
-                className={`featured-card${hoveredId === post._id ? ' hovered' : ''}`}
-                onClick={() => handlePostClick(post)}
-                onMouseEnter={() => setHoveredId(post._id)}
-                onMouseLeave={() => setHoveredId(null)}
-              >
-                <div className="fc-top">
-                  <span className="fc-category">{post.category}</span>
-                  <span className="fc-featured-badge">Featured</span>
+        {visible.length > 0 && (
+          <ul className="entries post-list">
+            {visible.map(post => (
+              <li className="entry" key={post._id}>
+                <div className="entry-head">
+                  <h2 className="entry-title"><Link to={`/blog/${post.slug}`}>{post.title}</Link></h2>
+                  <span className="mono-label">{[post.date, post.readTime].filter(Boolean).join(' · ')}</span>
                 </div>
-                <h2 className="fc-title">{post.title}</h2>
-                <p className="fc-excerpt">{post.excerpt}</p>
-                <div className="fc-bottom">
-                  <div className="fc-tags">
-                    {post.tags.map(t => <span className="btag" key={t}>{t}</span>)}
-                  </div>
-                  <div className="fc-meta">
-                    <span>{post.date}</span>
-                    <span className="meta-dot">·</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                </div>
-              </article>
+                <p className="entry-text post-excerpt-line">{post.excerpt}</p>
+                {post.tags.length > 0 && (
+                  <ul className="pills" aria-label="Tags">
+                    {post.tags.map(tag => (
+                      <li key={tag}>
+                        <Link to={hrefFor({ tag })} className="pill" aria-current={activeTag === tag ? 'true' : undefined}>#{tag}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             ))}
-          </div>
+          </ul>
         )}
 
-        {/* Rest of posts */}
-        {!loading && rest.length > 0 && (
-          <div className="posts-list fade-up-4">
-            {rest.map(post => (
-              <article
-                key={post._id}
-                className="post-row"
-                onClick={() => handlePostClick(post)}
-              >
-                <div className="pr-left">
-                  <span className="pr-category">{post.category}</span>
-                  <h3 className="pr-title">{post.title}</h3>
-                  <p className="pr-excerpt">{post.excerpt}</p>
-                  <div className="pr-tags">
-                    {post.tags.map(t => <span className="btag" key={t}>{t}</span>)}
-                  </div>
-                </div>
-                <div className="pr-right">
-                  <span>{post.date}</span>
-                  <span className="pr-read">{post.readTime}</span>
-                  <span className="pr-arrow">→</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
-
-        {!loading && filtered.length === 0 && (
-          <div className="no-posts fade-up-3">
-            <span className="mono-label">No posts in this category yet.</span>
-          </div>
-        )}
-
-        {/* Coming soon note */}
-        <div className="blog-note fade-up-5">
-          <span className="mono-label">More articles in progress —</span>
-          <span className="note-text">subscribe via email to get notified when new posts drop.</span>
-          <a href="mailto:amaanlari.official@gmail.com?subject=Blog subscription" className="note-link">Notify me →</a>
-        </div>
-
+        <p className="blog-note">
+          More articles in progress.{' '}
+          <a href="mailto:amaanlari.official@gmail.com?subject=Blog subscription">Get notified by email →</a>
+        </p>
       </div>
     </main>
   )

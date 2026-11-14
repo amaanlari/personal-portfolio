@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "title": "Viral Fission Platform",
+    "context": "Software Developer Intern",
+    "year": "2024",
+    "description": "Redis + Kafka notification ecosystem serving 150k+ users with 1M+ daily updates and 100% delivery reliability via DLT and automated retries.",
+    "tech": [
+      "Kafka",
+      "Redis",
+      "Spring Boot",
+      "Angular"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Blogger Hub",
+    "context": "Personal Project",
+    "year": "2024",
+    "description": "Production-grade multi-user blogging API with 3-tier RBAC, JWT + OTP auth, async Kafka notification pipeline, and Azure deployment.",
+    "details": [
+      "Built production-grade multi-user blogging API with JWT + OTP auth, refresh token rotation, and 3-tier RBAC (Admin/Free/Premium) enforcing subscription-based feature gating via Spring Security filter chains; engineered async Kafka notification pipeline for 5+ event types.",
+      "Optimized MongoDB with compound indexes and paginated read/unread tracking; containerized with Docker and deployed on Azure Spring Apps with Cloudinary CDN for media."
+    ],
+    "tech": [
+      "Java 17",
+      "Spring Boot",
+      "Spring Security",
+      "Kafka",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Azure"
+    ],
+    "featured": true,
+    "links": {
+      "github": "https://github.com/amaanlari/blogger-hub"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Tracki8 MES",
+    "context": "Software Engineer · Solvei8",
+    "year": "2025–26",
+    "description": "Cloud-edge Manufacturing Execution System serving 60+ global apparel factories. Built RFID scanning, combo packing architecture, and real-time data pipelines.",
+    "tech": [
+      "Java",
+      "Scala",
+      "Kafka",
+      "MongoDB"
+    ],
+    "featured": true,
+    "links": {
+      "caseStudy": "/blog"
+    }
+  },
+  {
+    "id": 4,
+    "title": "WFH & Leave Management System",
+    "year": "2026",
+    "description": "Internal tool that centralizes work-from-home and leave requests so managers and HR can review, approve, and track them in one place.",
+    "details": [
+      "Replaces scattered manual handling with a single request, review, and approval flow."
+    ],
+    "tech": [
+      ".NET",
+      "C#",
+      "Angular",
+      "TypeScript",
+      "SQL"
+    ],
+    "status": "Live",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "title": "Payment Gateway",
+    "context": "Personal Project",
+    "year": "2026",
+    "description": "Razorpay-style payment gateway backend — merchant onboarding, payment order lifecycle, webhooks, and idempotent APIs.",
+    "tech": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Kafka"
+    ],
+    "status": "In progress",
+    "featured": true,
+    "links": {
+      "github": ""
+    }
+  }
+]
