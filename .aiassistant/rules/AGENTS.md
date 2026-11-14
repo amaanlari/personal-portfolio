@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # AGENTS.md — Portfolio + Blog CMS
 
 This file is the authoritative guide for any AI agent (Claude, Copilot, Cursor, etc.) working on
